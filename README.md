@@ -1,44 +1,29 @@
-### This repository is no longer maintained!
+# My Node.js Project
 
-**For the most up to date test app to get you started on Heroku, head on over to [`node-js-getting-started`](https://github.com/heroku/node-js-getting-started).**
+## Deskripsi
+Aplikasi Node.js sederhana berdasarkan [heroku/node-js-sample](https://github.com/heroku/node-js-sample), di-deploy ke AWS EC2 untuk keperluan mata kuliah SISKA.
 
----
+## Prasyarat
+- Node.js v16 atau lebih tinggi
+- AWS CLI (opsional, untuk manajemen EC2)
+- Git
+- SSH client (untuk akses EC2)
 
-# node-js-sample
+## Instalasi Lokal
+1. Clone repositori: `git clone https://github.com/<username>/node-js-sample.git`
+2. Masuk ke direktori: `cd node-js-sample`
+3. Install dependensi: `npm install`
+4. Jalankan aplikasi: `npm start`
+5. Buka di browser: `http://localhost:5000`
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+## Deployment ke AWS EC2
+1. Buat instansi EC2 dengan AMI (misalnya, Amazon Linux 2).
+2. Konfigurasi SSH: `ssh -i <path-to-key>.pem ec2-user@<ec2-public-ip>`
+3. Salin kode ke EC2: `scp -i <path-to-key>.pem -r ./node-js-sample ec2-user@<ec2-public-ip>:/home/ec2-user/`
+4. Install Node.js di EC2, lalu jalankan `npm install` dan `npm start`.
+5. Buka aplikasi di `http://<ec2-public-ip>:5000`.
 
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-git clone git@github.com:heroku/node-js-sample.git # or clone your own fork
-cd node-js-sample
-npm install
-npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-heroku create
-git push heroku master
-heroku open
-```
-
-Alternatively, you can deploy your own copy of the app using the web-based flow:
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [10 Habits of a Happy Node Hacker](https://blog.heroku.com/archives/2014/3/11/node-habits)
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+## Status
+- [x] Aplikasi berjalan di lokal
+- [ ] Menyelesaikan koneksi SSH ke EC2
+- [ ] Deploy aplikasi ke EC2
